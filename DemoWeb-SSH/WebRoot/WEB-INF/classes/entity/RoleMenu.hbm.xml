@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="entity">
+	<!-- 实体类的映射 -->
+	<class name="RoleMenu">
+		<!-- 主键属性的映射 -->
+		<id name="id">
+			<!-- 主键生成器 -->
+			<generator class="sequence">
+				<param name="sequence">seq_rolemenu</param>
+			</generator>
+		</id>
+		<!-- 两个多对一 -->
+		<many-to-one name="menu" column="menuId" not-null="true" cascade="save-update"/>
+		<many-to-one name="role" column="roleId" not-null="true" cascade="save-update"/>
+		
+	</class>
+
+</hibernate-mapping>

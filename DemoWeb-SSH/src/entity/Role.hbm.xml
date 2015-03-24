@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="entity">
+	<!-- 实体类的映射 -->
+	<class name="Role">
+		<!-- 主键属性的映射 -->
+		<id name="id">
+			<!-- 主键生成器 -->
+			<generator class="sequence">
+				<param name="sequence">seq_role</param>
+			</generator>
+		</id>
+		<!-- 其它属性的映射 -->
+		<property name="name" not-null="true"/>
+		
+		<!-- 一对多映射 -->
+		<set name="userInfos">
+			<key column="roleId"/>
+			<one-to-many class="UserInfo"/>
+		</set>
+		
+		<!-- 多对多，两个一对多 -->
+		<set name="roleMenus">
+			<key column="roleId"/>
+			<one-to-many class="RoleMenu"/>
+		</set>
+	</class>
+
+</hibernate-mapping>
