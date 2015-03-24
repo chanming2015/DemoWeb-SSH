@@ -3,7 +3,7 @@
   type="WEB"
   name="DemoWeb-SSH"
   id="myeclipse.1425448995408"
-  context-root="/DemoWeb"
+  context-root="/DemoWeb-SSH"
   j2ee-spec="6.0"
   archive="DemoWeb-SSH.war">
   <attributes>
